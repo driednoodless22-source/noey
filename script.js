@@ -1,20 +1,41 @@
-function showLove(){
+let music = document.getElementById("music")
+let cover = document.getElementById("cover")
 
-document.getElementById("loveText").innerText =
-"ตั้งแต่วันที่เธอเข้ามาในชีวิต ทุกวันของฉันก็พิเศษขึ้น รักเธอมากนะ ❤️"
+function toggleMusic(){
+
+if(music.paused){
+
+music.play()
+
+cover.classList.add("rotate")
+
+startHearts()
+
+}else{
+
+music.pause()
+
+cover.classList.remove("rotate")
 
 }
 
+}
 
 /* หัวใจลอย */
+
+function startHearts(){
+
+setInterval(createHeart,600)
+
+}
 
 function createHeart(){
 
 let heart = document.createElement("div")
 
-heart.innerHTML="💗"
-
 heart.className="heart"
+
+heart.innerHTML="💗"
 
 heart.style.left=Math.random()*100+"vw"
 
@@ -27,23 +48,5 @@ setTimeout(()=>{
 heart.remove()
 
 },5000)
-
-}
-
-setInterval(createHeart,400)
-/* นับวันครบรอบ */
-
-let startDate = new Date("2024-12-30")
-
-let today = new Date()
-
-let diff = today - startDate
-
-let days = Math.floor(diff / (1000*60*60*24))
-
-document.getElementById("days").innerText = days + " วัน"
-function playMusic(){
-
-document.getElementById("music").play()
 
 }
