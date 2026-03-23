@@ -50,3 +50,18 @@ heart.remove()
 },5000)
 
 }
+function checkAnswer(answer){
+
+let result=document.getElementById("result")
+
+if(answer==2){
+
+result.innerHTML="ถูกต้อง! เธอจำด้ายยย"
+
+}else{
+
+result.innerHTML="ยังไม่ใช่นะ ลองอีกครั้ง "
+
+}
+
+}
